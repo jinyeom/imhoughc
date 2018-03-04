@@ -15,6 +15,13 @@ print('images/coins_result.png', '-dpng', '-r0'); close
 JC = detectCircles(J, 107); % detect Jupiter
 n = size(JC, 1);
 radii2 = zeros(n, 1);
-radii2(:) = 40;
-imshow(I); hold on; viscircles(JC, radii2);
+radii2(:) = 107;
+imshow(J); hold on; viscircles(JC, radii2);
 print('images/planets_result.png', '-dpng', '-r0'); close
+
+KC = detectCircles(K, 44); % detect face emojis 
+n = size(KC, 1);
+radii3 = zeros(n, 1);
+radii3(:) = 44;
+imshow(K); hold on; viscircles(KC, radii3);
+print('images/emoji_result.png', '-dpng', '-r0'); close
