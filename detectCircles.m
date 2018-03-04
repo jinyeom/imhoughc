@@ -19,7 +19,7 @@ function [centers] = detectCircles(im, radius)
     end
   end
   
-  imagesc(H);
-  
-  centers = zeros(1);
+  % Threshold votes.
+  [r, c] = find(H < int32(max(H(:)) * 0.7));
+  centers = [r c];
 return
