@@ -20,6 +20,6 @@ function [centers] = detectCircles(im, radius)
   end
   
   % Threshold votes.
-  [r, c] = find(H > int32(max(H(:)) * 0.7));
-  centers = [r, c];
+  [y, x] = find(H > int32(max(H(:)) * 0.7));
+  centers = [x, y];
 return
