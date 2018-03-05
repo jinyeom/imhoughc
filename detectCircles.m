@@ -21,7 +21,7 @@ function [centers] = detectCircles(im, radius)
 
   % Uncomment to print the Hough voting space.
   figure
-  colormap cool
+  colormap pink
   imagesc(H)
   print('images/hough_space.png', '-dpng', '-r0')
   close
