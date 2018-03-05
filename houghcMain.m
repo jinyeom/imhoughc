@@ -10,7 +10,7 @@ centers = detectCircles(K, 44);
 
 % Experiments for final results.
 % Comment out the visualization of Hough space.
-IC = detectCircles(I, 28); % detect pennys
+IC = detectCircles(I, 28); % detect pennies
 n = size(IC, 1);
 radii = zeros(n, 1);
 radii(:) = 28;

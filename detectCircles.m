@@ -19,14 +19,31 @@ function [centers] = detectCircles(im, radius)
     end
   end
 
+  % Post processing of the voting array with a bin size.
+  PP = zeros(size(H));
+  binsize = 4;
+  for i = 1:binsize:h
+    binr = i:min(h, i + binsize - 1);
+    for j = 1:binsize:w
+      binc = j:min(w, j + binsize - 1);
+      B = H(binr, binc);
+      binsum = sum(B(:));
+      [~, idx] = max(B(:));
+      [wr, wc] = ind2sub(size(B), idx);
+      B = zeros(size(B));
+      B(wr, wc) = binsum;
+      PP(binr, binc) = B;
+    end
+  end
+  
   % Uncomment to print the Hough voting space.
   figure
   colormap pink
-  imagesc(H)
+  imagesc(PP)
   print('images/hough_space.png', '-dpng', '-r0')
   close
-  
+
   % Threshold votes.
-  [y, x] = find(H > int32(max(H(:)) * 0.7));
+  [y, x] = find(PP > int32(max(PP(:)) * 0.8));
   centers = [x, y];
 return
