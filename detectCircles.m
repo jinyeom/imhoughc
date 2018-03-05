@@ -21,7 +21,7 @@ function [centers] = detectCircles(im, radius)
 
   % Post processing of the voting array with a bin size.
   PP = zeros(size(H));
-  binsize = 4;
+  binsize = 1;
   for i = 1:binsize:h
     binr = i:min(h, i + binsize - 1);
     for j = 1:binsize:w
