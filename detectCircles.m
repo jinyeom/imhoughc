@@ -21,7 +21,7 @@ function [centers] = detectCircles(im, radius)
 
   % Post processing of the voting array with a bin size.
   PP = zeros(size(H));
-  binsize = 1;
+  binsize = 4;
   for i = 1:binsize:h
     binr = i:min(h, i + binsize - 1);
     for j = 1:binsize:w
@@ -42,6 +42,6 @@ function [centers] = detectCircles(im, radius)
   imagesc(PP)
 
   % Threshold votes.
-  [y, x] = find(PP > int32(max(PP(:)) * 0.8));
+  [y, x] = find(PP > int32(max(PP(:)) * 0.7));
   centers = [x, y];
 return
