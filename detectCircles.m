@@ -40,8 +40,6 @@ function [centers] = detectCircles(im, radius)
   figure
   colormap pink
   imagesc(PP)
-  print('images/hough_space.png', '-dpng', '-r0')
-  close
 
   % Threshold votes.
   [y, x] = find(PP > int32(max(PP(:)) * 0.8));
