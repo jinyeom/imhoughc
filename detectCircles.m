@@ -18,6 +18,13 @@ function [centers] = detectCircles(im, radius)
       end
     end
   end
+
+  % Uncomment to print the Hough voting space.
+  figure
+  colormap cool
+  imagesc(H)
+  print('images/hough_space.png', '-dpng', '-r0')
+  close
   
   % Threshold votes.
   [y, x] = find(H > int32(max(H(:)) * 0.7));

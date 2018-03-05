@@ -4,7 +4,12 @@ I = imread('images/coins.jpg');
 J = imread('images/planets.jpg');
 K = imread('images/emoji.png');
 
-% experiments...
+% Save Hough space visualization.
+% Uncomment the Hough space visualization.
+centers = detectCircles(K, 44);
+
+% Experiments for final results.
+% Comment out the visualization of Hough space.
 IC = detectCircles(I, 28); % detect pennys
 n = size(IC, 1);
 radii = zeros(n, 1);
